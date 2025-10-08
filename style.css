@@ -42,10 +42,22 @@ nav {
   transition: 0.3s ease;
 }
 
+.circle a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+
 .circle:hover {
   background: #db5598;
   color: #fff;
 }
+
+
 
 .song-img {
     width: 220px;
