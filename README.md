@@ -8,7 +8,8 @@ Integrating AI in your learning is so cool and fun! 🎵
 
 - Play / Pause the music  
 - Skip forward / backward buttons (just UI for now)  
-- Progress bar to see the song’s current time  
+- Progress bar to see the song’s current time
+- Download & share buttons
 - Cool circular buttons with hover effects  
 - Song image with a nice border and shadow  
 - Interactive and smooth design  
