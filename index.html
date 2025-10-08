@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Player</title>
+  <link rel="stylesheet" href="style.css">
+  
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+  
+</head>
+<body>
+  <div class="container">
+    <div class="music-player">
+      <nav>
+        <div class="circle">
+          <i class="ri-arrow-left-line"></i>
+        </div>
+        <div class="circle">
+          <i class="ri-menu-line"></i>
+        </div>
+      </nav>
+      <img src="EresMiSilencio-img.png" alt="song_img" class="song-img">
+      <h1>Eres Mi Silencio</h1>
+      <p>Aryan Sinha ft.  Ai hehe</p>
+
+      <audio id="song">
+        <source src="EresMiSilencio.mp3" type="audio/mpeg">
+      </audio>
+      <input type="range" id="progress" min="0" max="100" value="50">
+
+      <div class="controls">
+        <div>
+          <i class="ri-skip-back-mini-line"></i>            
+        </div>
+        <div onclick="playPause()">
+          <i class="ri-play-line" id="controls"></i>
+        </div>
+        <div>
+          <i class="ri-skip-forward-mini-line"></i>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+
+<script>
+  let progress = document.getElementById("progress")
+  let song = document.getElementById("song")
+  let controlIcon = document.getElementById("controls")
+
+  song.onloadedmetadata = function() {
+    progress.max = song.duration; 
+    progress.value = song.currentTime; 
+
+  }
+
+  function playPause() {
+    if (controlIcon.classList.contains("ri-pause-line")) {
+      song.pause();
+      controlIcon.classList.remove("ri-pause-line")
+      controlIcon.classList.add("ri-play-line")
+    }
+    else {
+      song.play();
+      controlIcon.classList.remove("ri-play-line")
+      controlIcon.classList.add("ri-pause-line")
+    }
+  }
+
+if(song.play) {
+  setInterval(()=> {
+    progress.value = song.currentTime
+  }, 500)
+}
+
+progress.onchange = function() {
+  song.play();
+  song.currentTime = progress.value;
+  controlIcon.classList.remove("ri-play-line")
+      controlIcon.classList.add("ri-pause-line")
+}
+
+
+
+</script>
+</html>
+
+
+
+
